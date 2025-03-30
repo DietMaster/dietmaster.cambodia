@@ -908,31 +908,36 @@
     </div>
 
     <!-- EmailJS Script -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-        // Inicjalizacja EmailJS
-        (function() {
-            // https://dashboard.emailjs.com/admin
-            emailjs.init("ysKm0Ec0lzpQsZxDE");
-        })();
-        
+    <script>
+    // Upewnij się, że kod zostanie wykonany po załadowaniu całej strony
+    document.addEventListener('DOMContentLoaded', function() {
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const menu = document.getElementById('menu');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            menu.classList.toggle('show');
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                menu.classList.toggle('show');
+            });
+        }
 
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.classList.contains('buy-now')) {
+                    // Nie przewijaj dla przycisków "Kup teraz"
+                    return;
+                }
+                
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                window.scrollTo({
-                    top: target.offsetTop - 70,
-                    behavior: 'smooth'
-                });
-                menu.classList.remove('show');
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    menu.classList.remove('show');
+                }
             });
         });
 
@@ -944,52 +949,74 @@
         const orderForm = document.getElementById('orderForm');
         const successMessage = document.getElementById('successMessage');
         const closeSuccess = document.querySelector('.close-success');
+        
+        // Zmienna dla kontroli wybranego planu
+        let selectedPlan = '';
 
         // Obsługa przycisków "Kup teraz"
         buyButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
+            button.addEventListener('click', function(e) {
                 e.preventDefault();
-                selectedPlan = button.getAttribute('data-plan');
+                console.log('Przycisk "Kup teraz" został kliknięty');
+                selectedPlan = this.getAttribute('data-plan');
                 planTypeInput.value = selectedPlan;
                 modal.style.display = 'block';
                 
                 // Jeśli to plan podstawowy, ukryj krok 4 z paska postępu
                 if (selectedPlan === 'basic') {
-                    document.querySelector('.progress-step[data-step="4"]').style.display = 'none';
-                    document.querySelector('.progress-line:last-child').style.display = 'none';
+                    const step4 = document.querySelector('.progress-step[data-step="4"]');
+                    const lastLine = document.querySelector('.progress-line:last-child');
+                    const step3Button = document.querySelector('.form-step[data-step="3"] .next-step');
                     
-                    // Zmień tekst na przycisku w kroku 3
-                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Zamów teraz';
+                    if (step4) step4.style.display = 'none';
+                    if (lastLine) lastLine.style.display = 'none';
+                    if (step3Button) step3Button.textContent = 'Zamów teraz';
                 } else {
-                    document.querySelector('.progress-step[data-step="4"]').style.display = 'flex';
-                    document.querySelector('.progress-line:last-child').style.display = 'block';
+                    const step4 = document.querySelector('.progress-step[data-step="4"]');
+                    const lastLine = document.querySelector('.progress-line:last-child');
+                    const step3Button = document.querySelector('.form-step[data-step="3"] .next-step');
                     
-                    // Przywróć oryginalny tekst na przycisku w kroku 3
-                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Dalej';
+                    if (step4) step4.style.display = 'flex';
+                    if (lastLine) lastLine.style.display = 'block';
+                    if (step3Button) step3Button.textContent = 'Dalej';
                 }
             });
         });
 
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
+        // Zamykanie modalu
+        if (closeModal) {
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
 
+        // Zamykanie modalu po kliknięciu poza nim
         window.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.style.display = 'none';
             }
         });
 
-        // Obsługa formularza wieloetapowego
+        // Zamykanie komunikatu o sukcesie
+        if (closeSuccess) {
+            closeSuccess.addEventListener('click', () => {
+                modal.style.display = 'none';
+                // Reset form and hide success message
+                setTimeout(() => {
+                    orderForm.reset();
+                    orderForm.style.display = 'block';
+                    successMessage.style.display = 'none';
+                }, 300);
+            });
+        }
+
+        // Multi-step Form Functionality
         const formSteps = document.querySelectorAll('.form-step');
         const progressSteps = document.querySelectorAll('.progress-step');
         const progressLines = document.querySelectorAll('.progress-line');
         const nextButtons = document.querySelectorAll('.next-step');
         const prevButtons = document.querySelectorAll('.prev-step');
-        
-        // Zmienne dla kontroli planu
-        let selectedPlan = '';
-        
+
         // Funkcja przejścia do następnego kroku
         function goToNextStep(currentStep) {
             // Ukryj aktualny krok
@@ -1072,131 +1099,20 @@
                 goToPrevStep(currentStep);
             });
         });
-        
-        // Obsługa przycisków "Kup teraz"
-        buyButtons.forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                selectedPlan = button.getAttribute('data-plan');
-                planTypeInput.value = selectedPlan;
-                modal.style.display = 'block';
-                
-                // Jeśli to plan podstawowy, ukryj krok 4 z paska postępu
-                if (selectedPlan === 'basic') {
-                    document.querySelector('.progress-step[data-step="4"]').style.display = 'none';
-                    document.querySelector('.progress-line:last-child').style.display = 'none';
-                    
-                    // Zmień tekst na przycisku w kroku 3
-                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Zamów teraz';
-                } else {
-                    document.querySelector('.progress-step[data-step="4"]').style.display = 'flex';
-                    document.querySelector('.progress-line:last-child').style.display = 'block';
-                    
-                    // Przywróć oryginalny tekst na przycisku w kroku 3
-                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Dalej';
-                }
-            });
-        });
-        
-        // Obsługa formularza
-        orderForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Pokaż loading
-            const submitButton = document.querySelector('.submit-btn') || 
-                             document.querySelector('.form-step[data-step="3"] .next-step');
-            const originalButtonText = submitButton.textContent;
-            submitButton.textContent = 'Wysyłanie...';
-            submitButton.disabled = true;
-            
-            // Dla planu podstawowego, jeśli jesteśmy na kroku 3, zwaliduj i wyślij
-            if (selectedPlan === 'basic' && 
-                document.querySelector('.form-step[data-step="3"]').style.display === 'block') {
-                const isValid = validateStep(3);
-                if (!isValid) {
-                    submitButton.textContent = originalButtonText;
-                    submitButton.disabled = false;
-                    return;
-                }
-            }
-            
-            // Przygotuj dane do wysłania
-            const formData = new FormData(orderForm);
-            const formDataObject = Object.fromEntries(formData);
-            
-            // Dodatkowe informacje
-            formDataObject.planType = selectedPlan === 'basic' ? 'Plan Podstawowy (40$)' : 'Plan Premium (70$)';
-            formDataObject.date = new Date().toLocaleString();
-            
-            // Wyślij e-mail za pomocą EmailJS
-            emailjs.send('service_v4rdr9x', 'IDNowe', formDataObject)
-                .then(function(response) {
-                    console.log('SUCCESS!', response.status, response.text);
-                    
-                    // Pokaż komunikat o sukcesie
-                    document.querySelector('.purchase-form').style.display = 'none';
-                    successMessage.style.display = 'block';
-                    
-                    // Wyślij potwierdzenie do klienta
-                    sendConfirmationEmail(formDataObject);
-                })
-                .catch(function(error) {
-                    console.log('FAILED...', error);
-                    alert('Wystąpił błąd podczas wysyłania formularza. Prosimy spróbować ponownie.');
-                    
-                    submitButton.textContent = originalButtonText;
-                    submitButton.disabled = false;
-                });
-        });
-        
-        // Funkcja do wysyłania e-maila potwierdzającego do klienta
-        function sendConfirmationEmail(formData) {
-            const confirmationData = {
-                to_email: formData.email,
-                to_name: formData.name,
-                plan_type: formData.planType
-            };
-            
-            emailjs.send('TWÓJ_SERVICE_ID', 'IDPotwierdzenie', confirmationData)
-                .then(function(response) {
-                    console.log('Confirmation email sent!', response.status, response.text);
-                })
-                .catch(function(error) {
-                    console.log('Confirmation email failed...', error);
-                });
-        }
-        
-        // Funkcja do walidacji kroku formularza
-        function validateStep(stepNumber) {
-            let isValid = true;
-            const inputs = document.querySelector(`.form-step[data-step="${stepNumber}"]`)
-                .querySelectorAll('input[required], select[required]');
-            
-            inputs.forEach(input => {
-                if (!input.value) {
-                    isValid = false;
-                    input.style.borderColor = '#e74c3c';
-                } else {
-                    input.style.borderColor = '#ddd';
-                }
-            });
-            
-            if (!isValid) {
-                alert('Proszę wypełnić wszystkie wymagane pola.');
-            }
-            
-            return isValid;
-        }
 
-        closeSuccess.addEventListener('click', () => {
-            modal.style.display = 'none';
-            // Reset form and hide success message
-            setTimeout(() => {
-                orderForm.reset();
-                orderForm.style.display = 'block';
-                successMessage.style.display = 'none';
-            }, 300);
-        });
+        // Obsługa formularza
+        if (orderForm) {
+            orderForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Pokaż komunikat o sukcesie
+                document.querySelector('.purchase-form').style.display = 'none';
+                successMessage.style.display = 'block';
+                
+                // Tu normalnie byłoby wysyłanie danych formularza
+                console.log('Formularz wysłany!');
+            });
+        }
 
         // Highlight current section in navigation
         window.addEventListener('scroll', () => {
@@ -1221,6 +1137,7 @@
                 }
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
