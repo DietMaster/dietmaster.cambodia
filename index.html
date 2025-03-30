@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DietMaster Cambodia - Take care of your health with us</title>
+    <style>
+        /* Reset i podstawowe style */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+
+        .logo span {
+            color: #27ae60;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #27ae60;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #27ae60;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #219653;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .about-item {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .about-item i {
+            font-size: 48px;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        .about-item h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Plans Section */
+        .plans {
+            padding: 80px 0;
+            background-color: #f1f2f6;
+        }
+
+        .plans-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .plan-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px 30px;
+            text-align: center;
+            max-width: 350px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .plan-title {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .plan-price {
+            font-size: 36px;
+            font-weight: 700;
+            color: #27ae60;
+            margin-bottom: 30px;
+        }
+
+        .plan-price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #7f8c8d;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        /* For Whom Section */
+        .for-whom {
+            padding: 80px 0;
+        }
+
+        .for-whom-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .for-whom-item {
+            flex: 1;
+            min-width: 300px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .for-whom-item h3 {
+            font-size: 24px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .for-whom-item h3 span {
+            width: 40px;
+            height: 40px;
+            background-color: #27ae60;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .for-whom-item p {
+            color: #7f8c8d;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #27ae60;
+        }
+
+        .footer-col p {
+            color: #bdc3c7;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #34495e;
+            color: #fff;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #27ae60;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            border-top: 1px solid #34495e;
+            padding-top: 20px;
+            color: #bdc3c7;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            position: relative;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Formularz wywiadu żywieniowego */
+        .form-progress {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+        }
+        
+        .progress-step {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background-color: #eee;
+            color: #666;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .progress-step.active {
+            background-color: #27ae60;
+            color: #fff;
+        }
+        
+        .progress-step.completed {
+            background-color: #2ecc71;
+            color: #fff;
+        }
+        
+        .progress-line {
+            flex-grow: 1;
+            height: 3px;
+            background-color: #eee;
+            max-width: 60px;
+        }
+        
+        .progress-line.active {
+            background-color: #27ae60;
+        }
+        
+        .form-step {
+            display: none;
+        }
+        
+        .form-step[data-step="1"] {
+            display: block;
+        }
+        
+        .form-step h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        form input, form select, form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        form textarea {
+            resize: vertical;
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-weight: normal;
+        }
+        
+        .radio-group input {
+            width: auto;
+            margin-right: 8px;
+            margin-bottom: 0;
+        }
+        
+        .form-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .prev-step {
+            background-color: #7f8c8d;
+        }
+        
+        .prev-step:hover {
+            background-color: #6c7a7a;
+        }
+
+        form button {
+            background-color: #27ae60;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #219653;
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+        }
+
+        .success-message i {
+            font-size: 72px;
+            color: #27ae60;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Diet<span>Master</span> Cambodia</div>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#home">Strona główna</a></li>
+                    <li><a href="#about">O diecie keto</a></li>
+                    <li><a href="#plans">Plany żywieniowe</a></li>
+                    <li><a href="#for-whom">Dla kogo</a></li>
+                    <li><a href="#contact">Kontakt</a></li>
+                </ul>
+                <button class="mobile-menu-btn">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <img src="/api/placeholder/200/200" alt="DietMaster Cambodia Logo" style="margin-bottom: 20px; border-radius: 50%; background-color: #f5f5dc; padding: 10px;">
+            <h1>Take care of your health with us</h1>
+            <p>Odkryj moc zdrowego odżywiania opartego na dobrych tłuszczach i białku. Nasze spersonalizowane plany dietetyczne pomogą Ci osiągnąć wymarzoną sylwetkę i poprawić zdrowie.</p>
+            <a href="#plans" class="btn">Zobacz plany</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dlaczego dieta ketogeniczna?</h2>
+                <p>Dieta ketogeniczna i niskowęglowodanowa to najzdrowszy sposób odżywiania, który pomaga twojemu organizmowi funkcjonować optymalnie.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-item">
+                    <i>🔥</i>
+                    <h3>Przyspieszone spalanie tłuszczu</h3>
+                    <p>Dieta keto wprowadza organizm w stan ketozy, w którym efektywnie spala tłuszcz zamiast węglowodanów, przyspieszając utratę wagi.</p>
+                </div>
+                <div class="about-item">
+                    <i>🧠</i>
+                    <h3>Poprawa funkcji poznawczych</h3>
+                    <p>Ketony są doskonałym paliwem dla mózgu, co prowadzi do większej jasności umysłu, lepszej koncentracji i zwiększonej produktywności.</p>
+                </div>
+                <div class="about-item">
+                    <i>⚡</i>
+                    <h3>Stabilna energia</h3>
+                    <p>Zapomnij o wahaniach energii i poobiedniej senności. Dieta keto zapewnia stabilny poziom energii przez cały dzień.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plans Section -->
+    <section class="plans" id="plans">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nasze plany żywieniowe</h2>
+                <p>Wybierz plan dostosowany do swoich potrzeb i rozpocznij swoją podróż ku zdrowszemu życiu już dziś.</p>
+            </div>
+            <div class="plans-container">
+                <div class="plan-card">
+                    <h3 class="plan-title">Plan Podstawowy</h3>
+                    <div class="plan-price">40$<span>/miesiąc</span></div>
+                    <ul class="plan-features">
+                        <li>Dieta na 4 tygodnie</li>
+                        <li>Tygodniowy jadłospis</li>
+                        <li>Lista zakupów</li>
+                        <li>Cotygodniowa aktualizacja diety</li>
+                        <li>Monitorowanie postępów</li>
+                    </ul>
+                    <a href="#" class="btn buy-now" data-plan="basic">Kup teraz</a>
+                </div>
+                <div class="plan-card">
+                    <h3 class="plan-title">Plan Premium</h3>
+                    <div class="plan-price">70$<span>/miesiąc</span></div>
+                    <ul class="plan-features">
+                        <li>Wszystko z Planu Podstawowego</li>
+                        <li>Wybór ulubionych dań</li>
+                        <li>Możliwość wykluczenia produktów</li>
+                        <li>Dostosowanie własnych przepisów</li>
+                        <li>Priorytetowe uwzględnianie preferencji</li>
+                    </ul>
+                    <a href="#" class="btn buy-now" data-plan="premium">Kup teraz</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Whom Section -->
+    <section class="for-whom" id="for-whom">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dla kogo jest dieta keto?</h2>
+                <p>Nasze plany żywieniowe są dostosowane do różnych potrzeb i celów zdrowotnych.</p>
+            </div>
+            <div class="for-whom-content">
+                <div class="for-whom-item">
+                    <h3><span>1</span>Chcesz schudnąć</h3>
+                    <p>Dieta ketogeniczna to potężne narzędzie do utraty wagi. Zmniejszając spożycie węglowodanów i zwiększając spożycie tłuszczów, twój organizm wchodzi w stan ketozy, gdzie efektywnie spala tłuszcz jako główne źródło energii.</p>
+                </div>
+                <div class="for-whom-item">
+                    <h3><span>2</span>Chcesz budować masę mięśniową</h3>
+                    <p>Odpowiednio zbilansowana dieta keto z wysoką zawartością białka wspiera budowę i regenerację mięśni, jednocześnie minimalizując przyrost tkanki tłuszczowej.</p>
+                </div>
+                <div class="for-whom-item">
+                    <h3><span>3</span>Chcesz poprawić swoje zdrowie</h3>
+                    <p>Dieta niskowęglowodanowa może pomóc w kontrolowaniu poziomu cukru we krwi, obniżeniu ciśnienia krwi oraz zmniejszeniu stanów zapalnych, co prowadzi do poprawy ogólnego stanu zdrowia.</p>
+                </div>
+                <div class="for-whom-item">
+                    <h3><span>4</span>Chcesz więcej energii</h3>
+                    <p>Bez wzlotów i upadków poziomu cukru we krwi, które powodują węglowodany, będziesz cieszyć się stabilnym poziomem energii przez cały dzień, lepszym snem i zwiększoną wydajnością.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>O nas</h3>
+                    <p>DietMaster Cambodia to zespół pasjonatów zdrowego odżywiania i stylu życia. Naszą misją jest pomoc ludziom w osiągnięciu optymalnego zdrowia poprzez odpowiednio zbilansowaną dietę ketogeniczną i niskowęglowodanową.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontakt</h3>
+                    <p>Email: kontakt@dietmaster-cambodia.com</p>
+                    <p>Telefon: +48 123 456 789</p>
+                    <p>Adres: ul. Zdrowa 123, 00-000 Warszawa</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Śledź nas</h3>
+                    <div class="social-links">
+                        <a href="#"><i>f</i></a>
+                        <a href="#"><i>in</i></a>
+                        <a href="#"><i>ig</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DietMaster Cambodia. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="purchaseModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="purchase-form">
+                <h2>Wywiad żywieniowy</h2>
+                <p>Wypełnij poniższy formularz, abyśmy mogli przygotować idealnie dopasowany dla Ciebie plan żywieniowy.</p>
+                
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">1</div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">2</div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">3</div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="4">4</div>
+                </div>
+                
+                <form id="orderForm">
+                    <input type="hidden" id="planType" name="planType" value="">
+                    
+                    <!-- Krok 1: Dane podstawowe -->
+                    <div class="form-step" data-step="1">
+                        <h3>Dane podstawowe</h3>
+                        
+                        <div class="form-group">
+                            <label for="name">Imię i nazwisko</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="age">Wiek</label>
+                            <input type="number" id="age" name="age" min="18" max="100" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Płeć</label>
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="gender" value="female" required>
+                                    Kobieta
+                                </label>
+                                <label>
+                                    <input type="radio" name="gender" value="male">
+                                    Mężczyzna
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn next-step">Dalej</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Krok 2: Parametry ciała -->
+                    <div class="form-step" data-step="2">
+                        <h3>Parametry ciała</h3>
+                        
+                        <div class="form-group">
+                            <label for="weight">Waga (kg)</label>
+                            <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="height">Wzrost (cm)</label>
+                            <input type="number" id="height" name="height" min="120" max="220" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="waist">Obwód pasa (cm)</label>
+                            <input type="number" id="waist" name="waist" min="40" max="200" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="hip">Obwód bioder (cm)</label>
+                            <input type="number" id="hip" name="hip" min="40" max="200" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="thigh">Obwód uda (cm)</label>
+                            <input type="number" id="thigh" name="thigh" min="20" max="100" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="arm">Obwód ramienia (cm)</label>
+                            <input type="number" id="arm" name="arm" min="15" max="60" required>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn prev-step">Wstecz</button>
+                            <button type="button" class="btn next-step">Dalej</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Krok 3: Cele i nawyki -->
+                    <div class="form-step" data-step="3">
+                        <h3>Cele i nawyki</h3>
+                        
+                        <div class="form-group">
+                            <label for="goal">Główny cel</label>
+                            <select id="goal" name="goal" required>
+                                <option value="">Wybierz swój cel</option>
+                                <option value="weight-loss">Utrata wagi</option>
+                                <option value="muscle-gain">Budowa masy mięśniowej</option>
+                                <option value="health">Poprawa zdrowia</option>
+                                <option value="energy">Więcej energii</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="activity">Poziom aktywności fizycznej</label>
+                            <select id="activity" name="activity" required>
+                                <option value="">Wybierz poziom aktywności</option>
+                                <option value="sedentary">Siedzący tryb życia (brak ćwiczeń)</option>
+                                <option value="light">Lekka aktywność (1-2 razy w tygodniu)</option>
+                                <option value="moderate">Umiarkowana aktywność (3-4 razy w tygodniu)</option>
+                                <option value="high">Wysoka aktywność (5-7 razy w tygodniu)</option>
+                                <option value="very-high">Bardzo wysoka aktywność (trening 2x dziennie)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="meals">Preferowana liczba posiłków dziennie</label>
+                            <select id="meals" name="meals" required>
+                                <option value="">Wybierz liczbę posiłków</option>
+                                <option value="2">2 posiłki</option>
+                                <option value="3">3 posiłki</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Czy jadasz śniadania?</label>
+                            <div class="radio-group">
+                                <label>
+                                    <input type="radio" name="breakfast" value="yes" required>
+                                    Tak
+                                </label>
+                                <label>
+                                    <input type="radio" name="breakfast" value="no">
+                                    Nie
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn prev-step">Wstecz</button>
+                            <button type="button" class="btn next-step">Dalej</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Krok 4: Preferencje i zdrowotne -->
+                    <div class="form-step" data-step="4">
+                        <h3>Preferencje i zdrowie</h3>
+                        
+                        <div class="form-group">
+                            <label for="allergies">Alergie lub nietolerancje pokarmowe</label>
+                            <textarea id="allergies" name="allergies" rows="2" placeholder="Np. orzechy, nabiał, gluten..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="disliked">Niechciane produkty (maximum 5)</label>
+                            <textarea id="disliked" name="disliked" rows="2" placeholder="Produkty, których nie chcesz w swojej diecie"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="favorite">Ulubione produkty</label>
+                            <textarea id="favorite" name="favorite" rows="2" placeholder="Produkty, które szczególnie lubisz"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="health">Problemy zdrowotne</label>
+                            <textarea id="health" name="health" rows="2" placeholder="Np. cukrzyca, nadciśnienie, choroby tarczycy..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="additional">Dodatkowe informacje</label>
+                            <textarea id="additional" name="additional" rows="3" placeholder="Wszystkie dodatkowe informacje, które mogą być pomocne przy układaniu diety"></textarea>
+                        </div>
+                        
+                        <div class="form-buttons">
+                            <button type="button" class="btn prev-step">Wstecz</button>
+                            <button type="submit" class="btn submit-btn">Zamów teraz</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="success-message" id="successMessage">
+                <i>✓</i>
+                <h2>Dziękujemy za zamówienie!</h2>
+                <p>Skontaktujemy się z Tobą w ciągu 24 godzin, aby omówić szczegóły i rozpocząć przygotowanie Twojego planu żywieniowego.</p>
+                <button class="btn close-success">Zamknij</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- EmailJS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        // Inicjalizacja EmailJS
+        (function() {
+            // https://dashboard.emailjs.com/admin
+            emailjs.init("ysKm0Ec0lzpQsZxDE");
+        })();
+        
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const menu = document.getElementById('menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                menu.classList.remove('show');
+            });
+        });
+
+        // Modal Functionality
+        const modal = document.getElementById('purchaseModal');
+        const buyButtons = document.querySelectorAll('.buy-now');
+        const closeModal = document.querySelector('.close-modal');
+        const planTypeInput = document.getElementById('planType');
+        const orderForm = document.getElementById('orderForm');
+        const successMessage = document.getElementById('successMessage');
+        const closeSuccess = document.querySelector('.close-success');
+
+        // Obsługa przycisków "Kup teraz"
+        buyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                selectedPlan = button.getAttribute('data-plan');
+                planTypeInput.value = selectedPlan;
+                modal.style.display = 'block';
+                
+                // Jeśli to plan podstawowy, ukryj krok 4 z paska postępu
+                if (selectedPlan === 'basic') {
+                    document.querySelector('.progress-step[data-step="4"]').style.display = 'none';
+                    document.querySelector('.progress-line:last-child').style.display = 'none';
+                    
+                    // Zmień tekst na przycisku w kroku 3
+                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Zamów teraz';
+                } else {
+                    document.querySelector('.progress-step[data-step="4"]').style.display = 'flex';
+                    document.querySelector('.progress-line:last-child').style.display = 'block';
+                    
+                    // Przywróć oryginalny tekst na przycisku w kroku 3
+                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Dalej';
+                }
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Obsługa formularza wieloetapowego
+        const formSteps = document.querySelectorAll('.form-step');
+        const progressSteps = document.querySelectorAll('.progress-step');
+        const progressLines = document.querySelectorAll('.progress-line');
+        const nextButtons = document.querySelectorAll('.next-step');
+        const prevButtons = document.querySelectorAll('.prev-step');
+        
+        // Zmienne dla kontroli planu
+        let selectedPlan = '';
+        
+        // Funkcja przejścia do następnego kroku
+        function goToNextStep(currentStep) {
+            // Ukryj aktualny krok
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).style.display = 'none';
+            
+            // Dla planu podstawowego, jeśli jesteśmy na kroku 3, przejdź od razu do podsumowania
+            if (currentStep === 3 && selectedPlan === 'basic') {
+                // Pokaż komunikat o sukcesie
+                document.querySelector('.purchase-form').style.display = 'none';
+                successMessage.style.display = 'block';
+                return;
+            }
+            
+            // Pokaż następny krok
+            document.querySelector(`.form-step[data-step="${currentStep + 1}"]`).style.display = 'block';
+            
+            // Zaktualizuj pasek postępu
+            document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.add('completed');
+            document.querySelector(`.progress-step[data-step="${currentStep + 1}"]`).classList.add('active');
+            
+            if (currentStep < 3) {
+                progressLines[currentStep - 1].classList.add('active');
+            }
+            
+            // Przewiń do góry formularza
+            document.querySelector('.modal-content').scrollTop = 0;
+        }
+        
+        // Funkcja przejścia do poprzedniego kroku
+        function goToPrevStep(currentStep) {
+            // Ukryj aktualny krok
+            document.querySelector(`.form-step[data-step="${currentStep}"]`).style.display = 'none';
+            
+            // Pokaż poprzedni krok
+            document.querySelector(`.form-step[data-step="${currentStep - 1}"]`).style.display = 'block';
+            
+            // Zaktualizuj pasek postępu
+            document.querySelector(`.progress-step[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`.progress-step[data-step="${currentStep - 1}"]`).classList.add('active');
+            document.querySelector(`.progress-step[data-step="${currentStep - 1}"]`).classList.remove('completed');
+            
+            if (currentStep > 1) {
+                progressLines[currentStep - 2].classList.remove('active');
+            }
+            
+            // Przewiń do góry formularza
+            document.querySelector('.modal-content').scrollTop = 0;
+        }
+        
+        // Obsługa przycisków "Dalej"
+        nextButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const currentStep = parseInt(button.closest('.form-step').dataset.step);
+                
+                // Walidacja aktualnego kroku
+                let isValid = true;
+                const inputs = button.closest('.form-step').querySelectorAll('input[required], select[required]');
+                
+                inputs.forEach(input => {
+                    if (!input.value) {
+                        isValid = false;
+                        input.style.borderColor = '#e74c3c';
+                    } else {
+                        input.style.borderColor = '#ddd';
+                    }
+                });
+                
+                if (isValid) {
+                    goToNextStep(currentStep);
+                } else {
+                    alert('Proszę wypełnić wszystkie wymagane pola.');
+                }
+            });
+        });
+        
+        // Obsługa przycisków "Wstecz"
+        prevButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const currentStep = parseInt(button.closest('.form-step').dataset.step);
+                goToPrevStep(currentStep);
+            });
+        });
+        
+        // Obsługa przycisków "Kup teraz"
+        buyButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                selectedPlan = button.getAttribute('data-plan');
+                planTypeInput.value = selectedPlan;
+                modal.style.display = 'block';
+                
+                // Jeśli to plan podstawowy, ukryj krok 4 z paska postępu
+                if (selectedPlan === 'basic') {
+                    document.querySelector('.progress-step[data-step="4"]').style.display = 'none';
+                    document.querySelector('.progress-line:last-child').style.display = 'none';
+                    
+                    // Zmień tekst na przycisku w kroku 3
+                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Zamów teraz';
+                } else {
+                    document.querySelector('.progress-step[data-step="4"]').style.display = 'flex';
+                    document.querySelector('.progress-line:last-child').style.display = 'block';
+                    
+                    // Przywróć oryginalny tekst na przycisku w kroku 3
+                    document.querySelector('.form-step[data-step="3"] .next-step').textContent = 'Dalej';
+                }
+            });
+        });
+        
+        // Obsługa formularza
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Pokaż loading
+            const submitButton = document.querySelector('.submit-btn') || 
+                             document.querySelector('.form-step[data-step="3"] .next-step');
+            const originalButtonText = submitButton.textContent;
+            submitButton.textContent = 'Wysyłanie...';
+            submitButton.disabled = true;
+            
+            // Dla planu podstawowego, jeśli jesteśmy na kroku 3, zwaliduj i wyślij
+            if (selectedPlan === 'basic' && 
+                document.querySelector('.form-step[data-step="3"]').style.display === 'block') {
+                const isValid = validateStep(3);
+                if (!isValid) {
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                    return;
+                }
+            }
+            
+            // Przygotuj dane do wysłania
+            const formData = new FormData(orderForm);
+            const formDataObject = Object.fromEntries(formData);
+            
+            // Dodatkowe informacje
+            formDataObject.planType = selectedPlan === 'basic' ? 'Plan Podstawowy (40$)' : 'Plan Premium (70$)';
+            formDataObject.date = new Date().toLocaleString();
+            
+            // Wyślij e-mail za pomocą EmailJS
+            emailjs.send('service_v4rdr9x', 'IDNowe', formDataObject)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    
+                    // Pokaż komunikat o sukcesie
+                    document.querySelector('.purchase-form').style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Wyślij potwierdzenie do klienta
+                    sendConfirmationEmail(formDataObject);
+                })
+                .catch(function(error) {
+                    console.log('FAILED...', error);
+                    alert('Wystąpił błąd podczas wysyłania formularza. Prosimy spróbować ponownie.');
+                    
+                    submitButton.textContent = originalButtonText;
+                    submitButton.disabled = false;
+                });
+        });
+        
+        // Funkcja do wysyłania e-maila potwierdzającego do klienta
+        function sendConfirmationEmail(formData) {
+            const confirmationData = {
+                to_email: formData.email,
+                to_name: formData.name,
+                plan_type: formData.planType
+            };
+            
+            emailjs.send('TWÓJ_SERVICE_ID', 'IDPotwierdzenie', confirmationData)
+                .then(function(response) {
+                    console.log('Confirmation email sent!', response.status, response.text);
+                })
+                .catch(function(error) {
+                    console.log('Confirmation email failed...', error);
+                });
+        }
+        
+        // Funkcja do walidacji kroku formularza
+        function validateStep(stepNumber) {
+            let isValid = true;
+            const inputs = document.querySelector(`.form-step[data-step="${stepNumber}"]`)
+                .querySelectorAll('input[required], select[required]');
+            
+            inputs.forEach(input => {
+                if (!input.value) {
+                    isValid = false;
+                    input.style.borderColor = '#e74c3c';
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+            
+            if (!isValid) {
+                alert('Proszę wypełnić wszystkie wymagane pola.');
+            }
+            
+            return isValid;
+        }
+
+        closeSuccess.addEventListener('click', () => {
+            modal.style.display = 'none';
+            // Reset form and hide success message
+            setTimeout(() => {
+                orderForm.reset();
+                orderForm.style.display = 'block';
+                successMessage.style.display = 'none';
+            }, 300);
+        });
+
+        // Highlight current section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
