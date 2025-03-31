@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,6 +70,22 @@
 
         nav ul li a:hover {
             color: #27ae60;
+        }
+
+        /* Language Switcher */
+        .language-switch {
+            margin-left: 20px;
+        }
+
+        .language-switch a {
+            padding: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .language-switch a.active {
+            color: #27ae60;
+            text-decoration: underline;
         }
 
         .mobile-menu-btn {
@@ -513,6 +529,29 @@
             margin-bottom: 20px;
         }
 
+        /* Contact Form Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form button {
+            width: 100%;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -561,11 +600,15 @@
             <div class="logo">Diet<span>Master</span> Cambodia</div>
             <nav>
                 <ul id="menu">
-                    <li><a href="#home">Strona główna</a></li>
-                    <li><a href="#about">O diecie keto</a></li>
-                    <li><a href="#plans">Plany żywieniowe</a></li>
-                    <li><a href="#for-whom">Dla kogo</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="#home" data-i18n="nav_home">Strona główna</a></li>
+                    <li><a href="#about" data-i18n="nav_about">O diecie keto</a></li>
+                    <li><a href="#plans" data-i18n="nav_plans">Plany żywieniowe</a></li>
+                    <li><a href="#for-whom" data-i18n="nav_for_whom">Dla kogo</a></li>
+                    <li><a href="#contact" data-i18n="nav_contact">Kontakt</a></li>
+                    <li class="language-switch">
+                        <a href="javascript:void(0)" onclick="changeLanguage('en')" id="en-lang">EN</a> | 
+                        <a href="javascript:void(0)" onclick="changeLanguage('km')" id="km-lang">ខ្មែរ</a>
+                    </li>
                 </ul>
                 <button class="mobile-menu-btn">☰</button>
             </nav>
@@ -576,9 +619,9 @@
     <section class="hero" id="home">
         <div class="container">
             <img src="/api/placeholder/200/200" alt="DietMaster Cambodia Logo" style="margin-bottom: 20px; border-radius: 50%; background-color: #f5f5dc; padding: 10px;">
-            <h1>Take care of your health with us</h1>
-            <p>Odkryj moc zdrowego odżywiania opartego na dobrych tłuszczach i białku. Nasze spersonalizowane plany dietetyczne pomogą Ci osiągnąć wymarzoną sylwetkę i poprawić zdrowie.</p>
-            <a href="#plans" class="btn">Zobacz plany</a>
+            <h1 data-i18n="hero_title">Take care of your health with us</h1>
+            <p data-i18n="hero_subtitle">Odkryj moc zdrowego odżywiania opartego na dobrych tłuszczach i białku. Nasze spersonalizowane plany dietetyczne pomogą Ci osiągnąć wymarzoną sylwetkę i poprawić zdrowie.</p>
+            <a href="#plans" class="btn" data-i18n="hero_button">Zobacz plany</a>
         </div>
     </section>
 
@@ -586,24 +629,24 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <h2>Dlaczego dieta ketogeniczna?</h2>
-                <p>Dieta ketogeniczna i niskowęglowodanowa to najzdrowszy sposób odżywiania, który pomaga twojemu organizmowi funkcjonować optymalnie.</p>
+                <h2 data-i18n="about_title">Dlaczego dieta ketogeniczna?</h2>
+                <p data-i18n="about_subtitle">Dieta ketogeniczna i niskowęglowodanowa to najzdrowszy sposób odżywiania, który pomaga twojemu organizmowi funkcjonować optymalnie.</p>
             </div>
             <div class="about-content">
                 <div class="about-item">
                     <i>🔥</i>
-                    <h3>Przyspieszone spalanie tłuszczu</h3>
-                    <p>Dieta keto wprowadza organizm w stan ketozy, w którym efektywnie spala tłuszcz zamiast węglowodanów, przyspieszając utratę wagi.</p>
+                    <h3 data-i18n="about_item1_title">Przyspieszone spalanie tłuszczu</h3>
+                    <p data-i18n="about_item1_text">Dieta keto wprowadza organizm w stan ketozy, w którym efektywnie spala tłuszcz zamiast węglowodanów, przyspieszając utratę wagi.</p>
                 </div>
                 <div class="about-item">
                     <i>🧠</i>
-                    <h3>Poprawa funkcji poznawczych</h3>
-                    <p>Ketony są doskonałym paliwem dla mózgu, co prowadzi do większej jasności umysłu, lepszej koncentracji i zwiększonej produktywności.</p>
+                    <h3 data-i18n="about_item2_title">Poprawa funkcji poznawczych</h3>
+                    <p data-i18n="about_item2_text">Ketony są doskonałym paliwem dla mózgu, co prowadzi do większej jasności umysłu, lepszej koncentracji i zwiększonej produktywności.</p>
                 </div>
                 <div class="about-item">
                     <i>⚡</i>
-                    <h3>Stabilna energia</h3>
-                    <p>Zapomnij o wahaniach energii i poobiedniej senności. Dieta keto zapewnia stabilny poziom energii przez cały dzień.</p>
+                    <h3 data-i18n="about_item3_title">Stabilna energia</h3>
+                    <p data-i18n="about_item3_text">Zapomnij o wahaniach energii i poobiedniej senności. Dieta keto zapewnia stabilny poziom energii przez cały dzień.</p>
                 </div>
             </div>
         </div>
@@ -613,33 +656,33 @@
     <section class="plans" id="plans">
         <div class="container">
             <div class="section-title">
-                <h2>Nasze plany żywieniowe</h2>
-                <p>Wybierz plan dostosowany do swoich potrzeb i rozpocznij swoją podróż ku zdrowszemu życiu już dziś.</p>
+                <h2 data-i18n="plans_title">Nasze plany żywieniowe</h2>
+                <p data-i18n="plans_subtitle">Wybierz plan dostosowany do swoich potrzeb i rozpocznij swoją podróż ku zdrowszemu życiu już dziś.</p>
             </div>
             <div class="plans-container">
                 <div class="plan-card">
-                    <h3 class="plan-title">Plan Podstawowy</h3>
-                    <div class="plan-price">40$<span>/miesiąc</span></div>
+                    <h3 class="plan-title" data-i18n="basic_plan_title">Plan Podstawowy</h3>
+                    <div class="plan-price" data-i18n="basic_plan_price">40$<span>/miesiąc</span></div>
                     <ul class="plan-features">
-                        <li>Dieta na 4 tygodnie</li>
-                        <li>Tygodniowy jadłospis</li>
-                        <li>Lista zakupów</li>
-                        <li>Cotygodniowa aktualizacja diety</li>
-                        <li>Monitorowanie postępów</li>
+                        <li data-i18n="basic_plan_feature1">Dieta na 4 tygodnie</li>
+                        <li data-i18n="basic_plan_feature2">Tygodniowy jadłospis</li>
+                        <li data-i18n="basic_plan_feature3">Lista zakupów</li>
+                        <li data-i18n="basic_plan_feature4">Cotygodniowa aktualizacja diety</li>
+                        <li data-i18n="basic_plan_feature5">Monitorowanie postępów</li>
                     </ul>
-                    <a href="javascript:void(0)" class="btn buy-now" data-plan="basic">Kup teraz</a>
+                    <a href="javascript:void(0)" class="btn buy-now" data-plan="basic" data-i18n="buy_now_button">Kup teraz</a>
                 </div>
                 <div class="plan-card">
-                    <h3 class="plan-title">Plan Premium</h3>
-                    <div class="plan-price">70$<span>/miesiąc</span></div>
+                    <h3 class="plan-title" data-i18n="premium_plan_title">Plan Premium</h3>
+                    <div class="plan-price" data-i18n="premium_plan_price">70$<span>/miesiąc</span></div>
                     <ul class="plan-features">
-                        <li>Wszystko z Planu Podstawowego</li>
-                        <li>Wybór ulubionych dań</li>
-                        <li>Możliwość wykluczenia produktów</li>
-                        <li>Dostosowanie własnych przepisów</li>
-                        <li>Priorytetowe uwzględnianie preferencji</li>
+                        <li data-i18n="premium_plan_feature1">Wszystko z Planu Podstawowego</li>
+                        <li data-i18n="premium_plan_feature2">Wybór ulubionych dań</li>
+                        <li data-i18n="premium_plan_feature3">Możliwość wykluczenia produktów</li>
+                        <li data-i18n="premium_plan_feature4">Dostosowanie własnych przepisów</li>
+                        <li data-i18n="premium_plan_feature5">Priorytetowe uwzględnianie preferencji</li>
                     </ul>
-                    <a href="javascript:void(0)" class="btn buy-now" data-plan="premium">Kup teraz</a>
+                    <a href="javascript:void(0)" class="btn buy-now" data-plan="premium" data-i18n="buy_now_button">Kup teraz</a>
                 </div>
             </div>
         </div>
@@ -649,25 +692,25 @@
     <section class="for-whom" id="for-whom">
         <div class="container">
             <div class="section-title">
-                <h2>Dla kogo jest dieta keto?</h2>
-                <p>Nasze plany żywieniowe są dostosowane do różnych potrzeb i celów zdrowotnych.</p>
+                <h2 data-i18n="for_whom_title">Dla kogo jest dieta keto?</h2>
+                <p data-i18n="for_whom_subtitle">Nasze plany żywieniowe są dostosowane do różnych potrzeb i celów zdrowotnych.</p>
             </div>
             <div class="for-whom-content">
                 <div class="for-whom-item">
-                    <h3><span>1</span>Chcesz schudnąć</h3>
-                    <p>Dieta ketogeniczna to potężne narzędzie do utraty wagi. Zmniejszając spożycie węglowodanów i zwiększając spożycie tłuszczów, twój organizm wchodzi w stan ketozy, gdzie efektywnie spala tłuszcz jako główne źródło energii.</p>
+                    <h3><span>1</span><span data-i18n="for_whom_item1_title">Chcesz schudnąć</span></h3>
+                    <p data-i18n="for_whom_item1_text">Dieta ketogeniczna to potężne narzędzie do utraty wagi. Zmniejszając spożycie węglowodanów i zwiększając spożycie tłuszczów, twój organizm wchodzi w stan ketozy, gdzie efektywnie spala tłuszcz jako główne źródło energii.</p>
                 </div>
                 <div class="for-whom-item">
-                    <h3><span>2</span>Chcesz budować masę mięśniową</h3>
-                    <p>Odpowiednio zbilansowana dieta keto z wysoką zawartością białka wspiera budowę i regenerację mięśni, jednocześnie minimalizując przyrost tkanki tłuszczowej.</p>
+                    <h3><span>2</span><span data-i18n="for_whom_item2_title">Chcesz budować masę mięśniową</span></h3>
+                    <p data-i18n="for_whom_item2_text">Odpowiednio zbilansowana dieta keto z wysoką zawartością białka wspiera budowę i regenerację mięśni, jednocześnie minimalizując przyrost tkanki tłuszczowej.</p>
                 </div>
                 <div class="for-whom-item">
-                    <h3><span>3</span>Chcesz poprawić swoje zdrowie</h3>
-                    <p>Dieta niskowęglowodanowa może pomóc w kontrolowaniu poziomu cukru we krwi, obniżeniu ciśnienia krwi oraz zmniejszeniu stanów zapalnych, co prowadzi do poprawy ogólnego stanu zdrowia.</p>
+                    <h3><span>3</span><span data-i18n="for_whom_item3_title">Chcesz poprawić swoje zdrowie</span></h3>
+                    <p data-i18n="for_whom_item3_text">Dieta niskowęglowodanowa może pomóc w kontrolowaniu poziomu cukru we krwi, obniżeniu ciśnienia krwi oraz zmniejszeniu stanów zapalnych, co prowadzi do poprawy ogólnego stanu zdrowia.</p>
                 </div>
                 <div class="for-whom-item">
-                    <h3><span>4</span>Chcesz więcej energii</h3>
-                    <p>Bez wzlotów i upadków poziomu cukru we krwi, które powodują węglowodany, będziesz cieszyć się stabilnym poziomem energii przez cały dzień, lepszym snem i zwiększoną wydajnością.</p>
+                    <h3><span>4</span><span data-i18n="for_whom_item4_title">Chcesz więcej energii</span></h3>
+                    <p data-i18n="for_whom_item4_text">Bez wzlotów i upadków poziomu cukru we krwi, które powodują węglowodany, będziesz cieszyć się stabilnym poziomem energii przez cały dzień, lepszym snem i zwiększoną wydajnością.</p>
                 </div>
             </div>
         </div>
@@ -678,17 +721,17 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
-                    <h3>O nas</h3>
-                    <p>DietMaster Cambodia to zespół pasjonatów zdrowego odżywiania i stylu życia. Naszą misją jest pomoc ludziom w osiągnięciu optymalnego zdrowia poprzez odpowiednio zbilansowaną dietę ketogeniczną i niskowęglowodanową.</p>
+                    <h3 data-i18n="footer_about_title">O nas</h3>
+                    <p data-i18n="footer_about_text">DietMaster Cambodia to zespół pasjonatów zdrowego odżywiania i stylu życia. Naszą misją jest pomoc ludziom w osiągnięciu optymalnego zdrowia poprzez odpowiednio zbilansowaną dietę ketogeniczną i niskowęglowodanową.</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Kontakt</h3>
+                    <h3 data-i18n="footer_contact_title">Kontakt</h3>
                     <p>Email: kontakt@dietmaster-cambodia.com</p>
-                    <p>Telefon: +48 123 456 789</p>
-                    <p>Adres: ul. Zdrowa 123, 00-000 Warszawa</p>
+                    <p>Telefon: +855 123 456 789</p>
+                    <p>Adres: Phnom Penh, Cambodia</p>
                 </div>
                 <div class="footer-col">
-                    <h3>Śledź nas</h3>
+                    <h3 data-i18n="footer_follow_title">Śledź nas</h3>
                     <div class="social-links">
                         <a href="#"><i>f</i></a>
                         <a href="#"><i>in</i></a>
@@ -697,7 +740,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 DietMaster Cambodia. Wszelkie prawa zastrzeżone.</p>
+                <p data-i18n="footer_copyright">&copy; 2025 DietMaster Cambodia. Wszelkie prawa zastrzeżone.</p>
             </div>
         </div>
     </footer>
@@ -707,8 +750,8 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="purchase-form">
-                <h2>Wywiad żywieniowy</h2>
-                <p>Wypełnij poniższy formularz, abyśmy mogli przygotować idealnie dopasowany dla Ciebie plan żywieniowy.</p>
+                <h2 data-i18n="contact_form_title">Wywiad żywieniowy</h2>
+                <p data-i18n="contact_form_subtitle">Wypełnij poniższy formularz, abyśmy mogli przygotować idealnie dopasowany dla Ciebie plan żywieniowy.</p>
                 
                 <div class="form-progress">
                     <div class="progress-step active" data-step="1">1</div>
@@ -725,192 +768,458 @@
                     
                     <!-- Krok 1: Dane podstawowe -->
                     <div class="form-step" data-step="1">
-                        <h3>Dane podstawowe</h3>
+                        <h3 data-i18n="form_step1_title">Dane podstawowe</h3>
                         
                         <div class="form-group">
-                            <label for="name">Imię i nazwisko</label>
+                            <label for="name" data-i18n="form_name">Imię i nazwisko</label>
                             <input type="text" id="name" name="name" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email</label>
+                            <label for="email" data-i18n="form_email">Email</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Telefon</label>
+                            <label for="phone" data-i18n="form_phone">Telefon</label>
                             <input type="tel" id="phone" name="phone" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="age">Wiek</label>
+                            <label for="age" data-i18n="form_age">Wiek</label>
                             <input type="number" id="age" name="age" min="18" max="100" required>
                         </div>
                         
                         <div class="form-group">
-                            <label>Płeć</label>
+                            <label data-i18n="form_gender">Płeć</label>
                             <div class="radio-group">
                                 <label>
                                     <input type="radio" name="gender" value="female" required>
-                                    Kobieta
+                                    <span data-i18n="form_gender_female">Kobieta</span>
                                 </label>
                                 <label>
                                     <input type="radio" name="gender" value="male">
-                                    Mężczyzna
+                                    <span data-i18n="form_gender_male">Mężczyzna</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="form-buttons">
-                            <button type="button" class="btn next-step">Dalej</button>
+                            <button type="button" class="btn next-step" data-i18n="form_next">Dalej</button>
                         </div>
                     </div>
                     
                     <!-- Krok 2: Parametry ciała -->
                     <div class="form-step" data-step="2">
-                        <h3>Parametry ciała</h3>
+                        <h3 data-i18n="form_step2_title">Parametry ciała</h3>
                         
                         <div class="form-group">
-                            <label for="weight">Waga (kg)</label>
+                            <label for="weight" data-i18n="form_weight">Waga (kg)</label>
                             <input type="number" id="weight" name="weight" min="30" max="250" step="0.1" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="height">Wzrost (cm)</label>
+                            <label for="height" data-i18n="form_height">Wzrost (cm)</label>
                             <input type="number" id="height" name="height" min="120" max="220" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="waist">Obwód pasa (cm)</label>
+                            <label for="waist" data-i18n="form_waist">Obwód pasa (cm)</label>
                             <input type="number" id="waist" name="waist" min="40" max="200" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="hip">Obwód bioder (cm)</label>
+                            <label for="hip" data-i18n="form_hip">Obwód bioder (cm)</label>
                             <input type="number" id="hip" name="hip" min="40" max="200" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="thigh">Obwód uda (cm)</label>
+                            <label for="thigh" data-i18n="form_thigh">Obwód uda (cm)</label>
                             <input type="number" id="thigh" name="thigh" min="20" max="100" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="arm">Obwód ramienia (cm)</label>
+                            <label for="arm" data-i18n="form_arm">Obwód ramienia (cm)</label>
                             <input type="number" id="arm" name="arm" min="15" max="60" required>
                         </div>
                         
                         <div class="form-buttons">
-                            <button type="button" class="btn prev-step">Wstecz</button>
-                            <button type="button" class="btn next-step">Dalej</button>
+                            <button type="button" class="btn prev-step" data-i18n="form_prev">Wstecz</button>
+                            <button type="button" class="btn next-step" data-i18n="form_next">Dalej</button>
                         </div>
                     </div>
                     
                     <!-- Krok 3: Cele i nawyki -->
                     <div class="form-step" data-step="3">
-                        <h3>Cele i nawyki</h3>
+                        <h3 data-i18n="form_step3_title">Cele i nawyki</h3>
                         
                         <div class="form-group">
-                            <label for="goal">Główny cel</label>
+                            <label for="goal" data-i18n="form_goal_label">Główny cel</label>
                             <select id="goal" name="goal" required>
-                                <option value="">Wybierz swój cel</option>
-                                <option value="weight-loss">Utrata wagi</option>
-                                <option value="muscle-gain">Budowa masy mięśniowej</option>
-                                <option value="health">Poprawa zdrowia</option>
-                                <option value="energy">Więcej energii</option>
+                                <option value="" data-i18n="form_goal_select">Wybierz swój cel</option>
+                                <option value="weight-loss" data-i18n="form_goal_weight">Utrata wagi</option>
+                                <option value="muscle-gain" data-i18n="form_goal_muscle">Budowa masy mięśniowej</option>
+                                <option value="health" data-i18n="form_goal_health">Poprawa zdrowia</option>
+                                <option value="energy" data-i18n="form_goal_energy">Więcej energii</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="activity">Poziom aktywności fizycznej</label>
+                            <label for="activity" data-i18n="form_activity_label">Poziom aktywności fizycznej</label>
                             <select id="activity" name="activity" required>
-                                <option value="">Wybierz poziom aktywności</option>
-                                <option value="sedentary">Siedzący tryb życia (brak ćwiczeń)</option>
-                                <option value="light">Lekka aktywność (1-2 razy w tygodniu)</option>
-                                <option value="moderate">Umiarkowana aktywność (3-4 razy w tygodniu)</option>
-                                <option value="high">Wysoka aktywność (5-7 razy w tygodniu)</option>
-                                <option value="very-high">Bardzo wysoka aktywność (trening 2x dziennie)</option>
+                                <option value="" data-i18n="form_activity_select">Wybierz poziom aktywności</option>
+                                <option value="sedentary" data-i18n="form_activity_sedentary">Siedzący tryb życia (brak ćwiczeń)</option>
+                                <option value="light" data-i18n="form_activity_light">Lekka aktywność (1-2 razy w tygodniu)</option>
+                                <option value="moderate" data-i18n="form_activity_moderate">Umiarkowana aktywność (3-4 razy w tygodniu)</option>
+                                <option value="high" data-i18n="form_activity_high">Wysoka aktywność (5-7 razy w tygodniu)</option>
+                                <option value="very-high" data-i18n="form_activity_very_high">Bardzo wysoka aktywność (trening 2x dziennie)</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="meals">Preferowana liczba posiłków dziennie</label>
+                            <label for="meals" data-i18n="form_meals_label">Preferowana liczba posiłków dziennie</label>
                             <select id="meals" name="meals" required>
-                                <option value="">Wybierz liczbę posiłków</option>
-                                <option value="2">2 posiłki</option>
-                                <option value="3">3 posiłki</option>
+                                <option value="" data-i18n="form_meals_select">Wybierz liczbę posiłków</option>
+                                <option value="2" data-i18n="form_meals_2">2 posiłki</option>
+                                <option value="3" data-i18n="form_meals_3">3 posiłki</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label>Czy jadasz śniadania?</label>
+                            <label data-i18n="form_breakfast_label">Czy jadasz śniadania?</label>
                             <div class="radio-group">
                                 <label>
                                     <input type="radio" name="breakfast" value="yes" required>
-                                    Tak
+                                    <span data-i18n="form_breakfast_yes">Tak</span>
                                 </label>
                                 <label>
                                     <input type="radio" name="breakfast" value="no">
-                                    Nie
+                                    <span data-i18n="form_breakfast_no">Nie</span>
                                 </label>
                             </div>
                         </div>
                         
                         <div class="form-buttons">
-                            <button type="button" class="btn prev-step">Wstecz</button>
-                            <button type="button" class="btn next-step">Dalej</button>
+                            <button type="button" class="btn prev-step" data-i18n="form_prev">Wstecz</button>
+                            <button type="button" class="btn next-step" data-i18n="form_next">Dalej</button>
                         </div>
                     </div>
                     
                     <!-- Krok 4: Preferencje i zdrowotne -->
                     <div class="form-step" data-step="4">
-                        <h3>Preferencje i zdrowie</h3>
+                        <h3 data-i18n="form_step4_title">Preferencje i zdrowie</h3>
                         
                         <div class="form-group">
-                            <label for="allergies">Alergie lub nietolerancje pokarmowe</label>
-                            <textarea id="allergies" name="allergies" rows="2" placeholder="Np. orzechy, nabiał, gluten..."></textarea>
+                            <label for="allergies" data-i18n="form_allergies">Alergie lub nietolerancje pokarmowe</label>
+                            <textarea id="allergies" name="allergies" rows="2" data-i18n="form_allergies_placeholder" placeholder="Np. orzechy, nabiał, gluten..."></textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label for="disliked">Niechciane produkty (maximum 5)</label>
-                            <textarea id="disliked" name="disliked" rows="2" placeholder="Produkty, których nie chcesz w swojej diecie"></textarea>
+                            <label for="disliked" data-i18n="form_disliked">Niechciane produkty (maximum 5)</label>
+                            <textarea id="disliked" name="disliked" rows="2" data-i18n="form_disliked_placeholder" placeholder="Produkty, których nie chcesz w swojej diecie"></textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label for="favorite">Ulubione produkty</label>
-                            <textarea id="favorite" name="favorite" rows="2" placeholder="Produkty, które szczególnie lubisz"></textarea>
+                            <label for="favorite" data-i18n="form_favorite">Ulubione produkty</label>
+                            <textarea id="favorite" name="favorite" rows="2" data-i18n="form_favorite_placeholder" placeholder="Produkty, które szczególnie lubisz"></textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label for="health">Problemy zdrowotne</label>
-                            <textarea id="health" name="health" rows="2" placeholder="Np. cukrzyca, nadciśnienie, choroby tarczycy..."></textarea>
+                            <label for="health" data-i18n="form_health">Problemy zdrowotne</label>
+                            <textarea id="health" name="health" rows="2" data-i18n="form_health_placeholder" placeholder="Np. cukrzyca, nadciśnienie, choroby tarczycy..."></textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label for="additional">Dodatkowe informacje</label>
-                            <textarea id="additional" name="additional" rows="3" placeholder="Wszystkie dodatkowe informacje, które mogą być pomocne przy układaniu diety"></textarea>
+                            <label for="additional" data-i18n="form_additional">Dodatkowe informacje</label>
+                            <textarea id="additional" name="additional" rows="3" data-i18n="form_additional_placeholder" placeholder="Wszystkie dodatkowe informacje, które mogą być pomocne przy układaniu diety"></textarea>
                         </div>
                         
                         <div class="form-buttons">
-                            <button type="button" class="btn prev-step">Wstecz</button>
-                            <button type="submit" class="btn submit-btn">Zamów teraz</button>
+                            <button type="button" class="btn prev-step" data-i18n="form_prev">Wstecz</button>
+                            <button type="submit" class="btn submit-btn" data-i18n="form_submit">Zamów teraz</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="success-message" id="successMessage">
                 <i>✓</i>
-                <h2>Dziękujemy za zamówienie!</h2>
-                <p>Skontaktujemy się z Tobą w ciągu 24 godzin, aby omówić szczegóły i rozpocząć przygotowanie Twojego planu żywieniowego.</p>
-                <button class="btn close-success">Zamknij</button>
+                <h2 data-i18n="success_title">Dziękujemy za zamówienie!</h2>
+                <p data-i18n="success_message">Skontaktujemy się z Tobą w ciągu 24 godzin, aby omówić szczegóły i rozpocząć przygotowanie Twojego planu żywieniowego.</p>
+                <button class="btn close-success" data-i18n="success_close">Zamknij</button>
             </div>
         </div>
     </div>
 
-    <!-- EmailJS Script -->
+    <!-- Scripts -->
     <script>
+    // Słownik tekstów w różnych językach
+    const translations = {
+        'en': {
+            'nav_home': 'Home',
+            'nav_about': 'About Keto',
+            'nav_plans': 'Diet Plans',
+            'nav_for_whom': 'For Whom',
+            'nav_contact': 'Contact',
+            'hero_title': 'Take care of your health with us',
+            'hero_subtitle': 'Discover the power of healthy nutrition based on good fats and protein. Our personalized diet plans will help you achieve your dream body and improve your health.',
+            'hero_button': 'See plans',
+            'about_title': 'Why Ketogenic Diet?',
+            'about_subtitle': 'The ketogenic and low-carb diet is the healthiest way of eating that helps your body function optimally.',
+            'about_item1_title': 'Accelerated Fat Burning',
+            'about_item1_text': 'The keto diet puts your body into ketosis, where it efficiently burns fat instead of carbohydrates, accelerating weight loss.',
+            'about_item2_title': 'Improved Cognitive Function',
+            'about_item2_text': 'Ketones are excellent fuel for the brain, leading to greater mental clarity, better focus, and increased productivity.',
+            'about_item3_title': 'Stable Energy',
+            'about_item3_text': 'Forget about energy fluctuations and post-lunch drowsiness. The keto diet provides stable energy levels throughout the day.',
+            'plans_title': 'Our Diet Plans',
+            'plans_subtitle': 'Choose a plan tailored to your needs and start your journey to a healthier life today.',
+            'basic_plan_title': 'Basic Plan',
+            'basic_plan_price': '40$<span>/month</span>',
+            'basic_plan_feature1': '4-week diet plan',
+            'basic_plan_feature2': 'Weekly meal plan',
+            'basic_plan_feature3': 'Shopping list',
+            'basic_plan_feature4': 'Weekly diet updates',
+            'basic_plan_feature5': 'Progress tracking',
+            'premium_plan_title': 'Premium Plan',
+            'premium_plan_price': '70$<span>/month</span>',
+            'premium_plan_feature1': 'Everything in Basic Plan',
+            'premium_plan_feature2': 'Choice of favorite dishes',
+            'premium_plan_feature3': 'Option to exclude products',
+            'premium_plan_feature4': 'Customizing your own recipes',
+            'premium_plan_feature5': 'Priority consideration of preferences',
+            'buy_now_button': 'Buy Now',
+            'for_whom_title': 'Who is the keto diet for?',
+            'for_whom_subtitle': 'Our meal plans are tailored to different needs and health goals.',
+            'for_whom_item1_title': 'Want to lose weight',
+            'for_whom_item1_text': 'The ketogenic diet is a powerful tool for weight loss. By reducing carbohydrate intake and increasing fat intake, your body enters a state of ketosis, where it efficiently burns fat as the main source of energy.',
+            'for_whom_item2_title': 'Want to build muscle mass',
+            'for_whom_item2_text': 'A properly balanced keto diet with high protein content supports muscle building and regeneration, while minimizing fat tissue growth.',
+            'for_whom_item3_title': 'Want to improve your health',
+            'for_whom_item3_text': 'A low-carb diet can help control blood sugar levels, lower blood pressure, and reduce inflammation, leading to improved overall health.',
+            'for_whom_item4_title': 'Want more energy',
+            'for_whom_item4_text': 'Without the ups and downs in blood sugar levels caused by carbohydrates, you\'ll enjoy stable energy levels throughout the day, better sleep, and increased performance.',
+            'footer_about_title': 'About Us',
+            'footer_about_text': 'DietMaster Cambodia is a team of healthy eating and lifestyle enthusiasts. Our mission is to help people achieve optimal health through a properly balanced ketogenic and low-carb diet.',
+            'footer_contact_title': 'Contact',
+            'footer_follow_title': 'Follow Us',
+            'footer_copyright': '© 2025 DietMaster Cambodia. All rights reserved.',
+            'contact_form_title': 'Nutrition Interview',
+            'contact_form_subtitle': 'Fill out the form below so we can prepare a perfectly tailored diet plan for you.',
+            'form_step1_title': 'Basic Information',
+            'form_name': 'Full Name',
+            'form_email': 'Email',
+            'form_phone': 'Phone',
+            'form_age': 'Age',
+            'form_gender': 'Gender',
+            'form_gender_female': 'Female',
+            'form_gender_male': 'Male',
+            'form_next': 'Next',
+            'form_prev': 'Back',
+            'form_step2_title': 'Body Parameters',
+            'form_weight': 'Weight (kg)',
+            'form_height': 'Height (cm)',
+            'form_waist': 'Waist Circumference (cm)',
+            'form_hip': 'Hip Circumference (cm)',
+            'form_thigh': 'Thigh Circumference (cm)',
+            'form_arm': 'Arm Circumference (cm)',
+            'form_step3_title': 'Goals and Habits',
+            'form_goal_label': 'Main Goal',
+            'form_goal_select': 'Select your goal',
+            'form_goal_weight': 'Weight Loss',
+            'form_goal_muscle': 'Muscle Building',
+            'form_goal_health': 'Health Improvement',
+            'form_goal_energy': 'More Energy',
+            'form_activity_label': 'Physical Activity Level',
+            'form_activity_select': 'Select activity level',
+            'form_activity_sedentary': 'Sedentary (no exercise)',
+            'form_activity_light': 'Light activity (1-2 times per week)',
+            'form_activity_moderate': 'Moderate activity (3-4 times per week)',
+            'form_activity_high': 'High activity (5-7 times per week)',
+            'form_activity_very_high': 'Very high activity (training 2x daily)',
+            'form_meals_label': 'Preferred number of meals per day',
+            'form_meals_select': 'Select number of meals',
+            'form_meals_2': '2 meals',
+            'form_meals_3': '3 meals',
+            'form_breakfast_label': 'Do you eat breakfast?',
+            'form_breakfast_yes': 'Yes',
+            'form_breakfast_no': 'No',
+            'form_step4_title': 'Preferences and Health',
+            'form_allergies': 'Allergies or food intolerances',
+            'form_allergies_placeholder': 'E.g. nuts, dairy, gluten...',
+            'form_disliked': 'Unwanted products (maximum 5)',
+            'form_disliked_placeholder': 'Products you don\'t want in your diet',
+            'form_favorite': 'Favorite products',
+            'form_favorite_placeholder': 'Products you particularly like',
+            'form_health': 'Health issues',
+            'form_health_placeholder': 'E.g. diabetes, hypertension, thyroid disease...',
+            'form_additional': 'Additional information',
+            'form_additional_placeholder': 'Any additional information that may be helpful when creating your diet',
+            'form_submit': 'Order Now',
+            'success_title': 'Thank you for your order!',
+            'success_message': 'We will contact you within 24 hours to discuss details and start preparing your diet plan.',
+            'success_close': 'Close'
+        },
+        'km': {
+            'nav_home': 'ទំព័រដើម',
+            'nav_about': 'អំពីរបបអាហារ Keto',
+            'nav_plans': 'ផែនការអាហារូបត្ថម្ភ',
+            'nav_for_whom': 'សម្រាប់អ្នកណា',
+            'nav_contact': 'ទំនាក់ទំនង',
+            'hero_title': 'ថែរក្សាសុខភាពរបស់អ្នកជាមួយយើង',
+            'hero_subtitle': 'ស្វែងយល់ពីឥទ្ធិពលនៃអាហារូបត្ថម្ភដែលមានសុខភាពល្អដោយផ្អែកលើខ្លាញ់ល្អនិងប្រូតេអ៊ីន។ ផែនការអាហារូបត្ថម្ភផ្ទាល់ខ្លួនរបស់យើងនឹងជួយអ្នកឱ្យសម្រេចបាននូវរាងកាយដែលអ្នកប្រាថ្នាចង់បាននិងកែលម្អសុខភាពរបស់អ្នក។',
+            'hero_button': 'មើលផែនការ',
+            'about_title': 'ហេតុអ្វីត្រូវជ្រើសរើសរបបអាហារ Ketogenic?',
+            'about_subtitle': 'របបអាហារ ketogenic និងអាហារដែលមានជាតិកាបូអ៊ីដ្រាតទាបគឺជារបៀបបរិភោគដ៏មានសុខភាពបំផុតដែលជួយឱ្យរាងកាយរបស់អ្នកដំណើរការយ៉ាងល្អបំផុត។',
+            'about_item1_title': 'ការដុតខ្លាញ់លឿន',
+            'about_item1_text': 'របបអាហារ keto ដាក់រាងកាយរបស់អ្នកក្នុងភាពចតូស ដែលវាដុតខ្លាញ់ប្រកបដោយប្រសិទ្ធភាពជំនួសឱ្យកាបូអ៊ីដ្រាត ដែលជំរុញឱ្យការថយចុះទម្ងន់កាន់តែលឿន។',
+            'about_item2_title': 'បង្កើនមុខងារស្មារតី',
+            'about_item2_text': 'Ketones គឺជាឥន្ធនៈល្អសម្រាប់ខួរក្បាល ដែលនាំឱ្យមានភាពច្បាស់លាស់ផ្លូវចិត្តកាន់តែខ្លាំង ការផ្តោតអារម្មណ៍កាន់តែប្រសើរ និងផលិតភាពកើនឡើង។',
+            'about_item3_title': 'ថាមពលនឹងនរ',
+            'about_item3_text': 'ភ្លេចពីការប្រែប្រួលថាមពលនិងការងងុយគេងក្រោយពេលអាហារថ្ងៃត្រង់។ របបអាហារ keto ផ្តល់កម្រិតថាមពលដែលមានស្ថិរភាពពេញមួយថ្ងៃ។',
+            'plans_title': 'ផែនការអាហារូបត្ថម្ភរបស់យើង',
+            'plans_subtitle': 'ជ្រើសរើសផែនការដែលត្រូវនឹងតម្រូវការរបស់អ្នក ហើយចាប់ផ្តើមដំណើររបស់អ្នកឆ្ពោះទៅរកជីវិតដែលមានសុខភាពល្អនាថ្ងៃនេះ។',
+            'basic_plan_title': 'ផែនការមូលដ្ឋាន',
+            'basic_plan_price': '40$<span>/ខែ</span>',
+            'basic_plan_feature1': 'ផែនការអាហារសម្រាប់ 4 សប្តាហ៍',
+            'basic_plan_feature2': 'ផែនការអាហារប្រចាំសប្តាហ៍',
+            'basic_plan_feature3': 'បញ្ជីទិញទំនិញ',
+            'basic_plan_feature4': 'ការធ្វើបច្ចុប្បន្នភាពរបបអាហារប្រចាំសប្តាហ៍',
+            'basic_plan_feature5': 'ការតាមដានវឌ្ឍនភាព',
+            'premium_plan_title': 'ផែនការពិសេស',
+            'premium_plan_price': '70$<span>/ខែ</span>',
+            'premium_plan_feature1': 'អ្វីៗគ្រប់យ៉ាងក្នុងផែនការមូលដ្ឋាន',
+            'premium_plan_feature2': 'ជម្រើសនៃចំណីអាហារដែលចូលចិត្ត',
+            'premium_plan_feature3': 'ជម្រើសដើម្បីដកចេញផលិតផល',
+            'premium_plan_feature4': 'ការកែប្រែមុខម្ហូបផ្ទាល់ខ្លួនរបស់អ្នក',
+            'premium_plan_feature5': 'ការពិចារណាជាអាទិភាពនៃចំណូលចិត្ត',
+            'buy_now_button': 'ទិញឥឡូវនេះ',
+            'for_whom_title': 'តើរបបអាហារ keto សម្រាប់នរណា?',
+            'for_whom_subtitle': 'ផែនការអាហាររបស់យើងត្រូវបានកែសម្រួលសម្រាប់តម្រូវការនិងគោលដៅសុខភាពផ្សេងៗគ្នា។',
+            'for_whom_item1_title': 'ចង់សម្រកទម្ងន់',
+            'for_whom_item1_text': 'របបអាហារ ketogenic គឺជាឧបករណ៍ដ៏មានឥទ្ធិពលសម្រាប់ការសម្រកទម្ងន់។ ដោយកាត់បន្ថយការបរិភោគកាបូអ៊ីដ្រាតនិងបង្កើនការទទួលទានខ្លាញ់រាងកាយរបស់អ្នកចូលទៅក្នុងស្ថានភាពចតូស ដែលវាដុតខ្លាញ់ប្រកបដោយប្រសិទ្ធភាពជាប្រភពថាមពលចម្បង។',
+            'for_whom_item2_title': 'ចង់បង្កើតម៉ាស់សាច់ដុំ',
+            'for_whom_item2_text': 'របបអាហារ keto ដែលមានតុល្យភាពត្រឹមត្រូវជាមួយនឹងជាតិប្រូតេអ៊ីនខ្ពស់គាំទ្រដល់ការកសាងនិងការស្តារឡើងវិញនៃសាច់ដុំ ខណៈពេលកាត់បន្ថយការលូតលាស់នៃជាលិកាខ្លាញ់។',
+            'for_whom_item3_title': 'ចង់កែលម្អសុខភាពរបស់អ្នក',
+            'for_whom_item3_text': 'របបអាហារដែលមានជាតិកាបូអ៊ីដ្រាតទាបអាចជួយគ្រប់គ្រងកម្រិតជាតិស្ករក្នុងឈាម បន្ថយសម្ពាធឈាម និងកាត់បន្ថយការរលាក ដែលនាំឱ្យមានការកែលម្អសុខភាពទូទៅ។',
+            'for_whom_item4_title': 'ចង់បានថាមពលបន្ថែម',
+            'for_whom_item4_text': 'ដោយគ្មានការឡើងចុះនៃកម្រិតជាតិស្ករក្នុងឈាមដែលបណ្តាលមកពីកាបូអ៊ីដ្រាត អ្នកនឹងរីករាយនឹងកម្រិតថាមពលដែលមានស្ថិរភាពពេញមួយថ្ងៃ ការគេងល្អប្រសើរ និងប្រសិទ្ធភាពកើនឡើង។',
+            'footer_about_title': 'អំពីយើង',
+            'footer_about_text': 'DietMaster Cambodia គឺជាក្រុមអ្នកចូលចិត្តការបរិភោគអាហារដែលមានសុខភាពល្អនិងរបៀបរស់នៅ។ បេសកកម្មរបស់យើងគឺជួយមនុស្សឱ្យសម្រេចបាននូវសុខភាពល្អបំផុតតាមរយៈរបបអាហារ ketogenic និងអាហារដែលមានជាតិកាបូអ៊ីដ្រាតទាបដែលមានតុល្យភាពត្រឹមត្រូវ។',
+            'footer_contact_title': 'ទំនាក់ទំនង',
+            'footer_follow_title': 'តាមដានយើង',
+            'footer_copyright': '© 2025 DietMaster Cambodia។ រក្សាសិទ្ធិគ្រប់យ៉ាង។',
+            'contact_form_title': 'ការសម្ភាសន៍អំពីអាហារូបត្ថម្ភ',
+            'contact_form_subtitle': 'សូមបំពេញទម្រង់ខាងក្រោមដើម្បីឱ្យយើងអាចរៀបចំផែនការអាហារូបត្ថម្ភដែលសមស្របបំផុតសម្រាប់អ្នក។',
+            'form_step1_title': 'ព័ត៌មានមូលដ្ឋាន',
+            'form_name': 'ឈ្មោះពេញ',
+            'form_email': 'អ៊ីមែល',
+            'form_phone': 'ទូរស័ព្ទ',
+            'form_age': 'អាយុ',
+            'form_gender': 'ភេទ',
+            'form_gender_female': 'ស្រី',
+            'form_gender_male': 'ប្រុស',
+            'form_next': 'បន្ទាប់',
+            'form_prev': 'ត្រឡប់',
+            'form_step2_title': 'វិមាត្រនៃរាងកាយ',
+            'form_weight': 'ទម្ងន់ (គ.ក)',
+            'form_height': 'កម្ពស់ (ស.ម)',
+            'form_waist': 'រង្វាស់ចង្កេះ (ស.ម)',
+            'form_hip': 'រង្វាស់ត្រគាក (ស.ម)',
+            'form_thigh': 'រង្វាស់ភ្លៅ (ស.ម)',
+            'form_arm': 'រង្វាស់ដៃ (ស.ម)',
+            'form_step3_title': 'គោលដៅនិងទម្លាប់',
+            'form_goal_label': 'គោលដៅសំខាន់',
+            'form_goal_select': 'ជ្រើសរើសគោលដៅរបស់អ្នក',
+            'form_goal_weight': 'ការសម្រកទម្ងន់',
+            'form_goal_muscle': 'ការបង្កើតម៉ាស់សាច់ដុំ',
+            'form_goal_health': 'ការកែលម្អសុខភាព',
+            'form_goal_energy': 'ថាមពលបន្ថែម',
+            'form_activity_label': 'កម្រិតសកម្មភាពរាងកាយ',
+            'form_activity_select': 'ជ្រើសរើសកម្រិតសកម្មភាព',
+            'form_activity_sedentary': 'អង្គុយច្រើន (គ្មានការហាត់ប្រាណ)',
+            'form_activity_light': 'សកម្មភាពស្រាល (1-2 ដងក្នុងមួយសប្តាហ៍)',
+            'form_activity_moderate': 'សកម្មភាពមធ្យម (3-4 ដងក្នុងមួយសប្តាហ៍)',
+            'form_activity_high': 'សកម្មភាពខ្ពស់ (5-7 ដងក្នុងមួយសប្តាហ៍)',
+            'form_activity_very_high': 'សកម្មភាពខ្ពស់ខ្លាំង (ហាត់ប្រាណ 2 ដងក្នុងមួយថ្ងៃ)',
+            'form_meals_label': 'ចំនួនអាហារដែលចូលចិត្តក្នុងមួយថ្ងៃ',
+            'form_meals_select': 'ជ្រើសរើសចំនួនអាហារ',
+            'form_meals_2': '2 ពេល',
+            'form_meals_3': '3 ពេល',
+            'form_breakfast_label': 'តើអ្នកញ៉ាំអាហារពេលព្រឹកឬទេ?',
+            'form_breakfast_yes': 'បាទ/ចាស',
+            'form_breakfast_no': 'ទេ',
+            'form_step4_title': 'ចំណូលចិត្តនិងសុខភាព',
+            'form_allergies': 'អាឡែរហ្ស៊ីឬអសមត្ថភាពទ្រាំអាហារ',
+            'form_allergies_placeholder': 'ឧ. គ្រាប់ធញ្ញជាតិ ផលិតផលទឹកដោះគោ គ្លូតិន...',
+            'form_disliked': 'ផលិតផលមិនចង់បាន (អតិបរមា 5)',
+            'form_disliked_placeholder': 'ផលិតផលដែលអ្នកមិនចង់បានក្នុងរបបអាហាររបស់អ្នក',
+            'form_favorite': 'ផលិតផលដែលចូលចិត្ត',
+            'form_favorite_placeholder': 'ផលិតផលដែលអ្នកចូលចិត្តជាពិសេស',
+            'form_health': 'បញ្ហាសុខភាព',
+            'form_health_placeholder': 'ឧ. ជំងឺទឹកនោមផ្អែម ជំងឺលើសឈាម ជំងឺថៃរ៉ូអ៊ីត...',
+            'form_additional': 'ព័ត៌មានបន្ថែម',
+            'form_additional_placeholder': 'ព័ត៌មានបន្ថែមផ្សេងទៀតដែលអាចជួយពេលរៀបចំរបបអាហាររបស់អ្នក',
+            'form_submit': 'កម្មង់ឥឡូវនេះ',
+            'success_title': 'សូមអរគុណសម្រាប់ការកម្មង់របស់អ្នក!',
+            'success_message': 'យើងនឹងទាក់ទងអ្នកក្នុងរយៈពេល 24 ម៉ោងដើម្បីពិភាក្សាពីព័ត៌មានលម្អិតនិងចាប់ផ្តើមរៀបចំផែនការអាហារូបត្ថម្ភរបស់អ្នក។',
+            'success_close': 'បិទ'
+        }
+    };
+
+    // Zmienna dla zapamiętania aktualnego języka
+    let currentLanguage = 'en';
+
+    // Funkcja do zmiany języka
+    function changeLanguage(lang) {
+        // Zapamiętaj wybrany język
+        currentLanguage = lang;
+        
+        try {
+            // Próbujemy zapisać w localStorage, ale obsługujemy błąd jeśli jest niedostępny
+            localStorage.setItem('selectedLanguage', lang);
+        } catch (error) {
+            console.log('localStorage is not available, using memory variable instead');
+        }
+        
+        // Aktualizuj aktywny przycisk języka
+        document.getElementById('en-lang').classList.remove('active');
+        document.getElementById('km-lang').classList.remove('active');
+        document.getElementById(lang + '-lang').classList.add('active');
+        
+        // Aktualizuj teksty na stronie
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang][key]) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    if (element.getAttribute('placeholder')) {
+                        element.placeholder = translations[lang][key];
+                    }
+                } else if (element.tagName === 'OPTION') {
+                    element.text = translations[lang][key];
+                } else {
+                    element.innerHTML = translations[lang][key];
+                }
+            }
+        });
+    }
+
     // Upewnij się, że kod zostanie wykonany po załadowaniu całej strony
     document.addEventListener('DOMContentLoaded', function() {
+        // Inicjalizacja języka
+        let savedLanguage = 'en';
+        
+        try {
+            // Próbujemy odczytać z localStorage, ale obsługujemy błąd jeśli jest niedostępny
+            const storedLang = localStorage.getItem('selectedLanguage');
+            if (storedLang) {
+                savedLanguage = storedLang;
+            }
+        } catch (error) {
+            console.log('localStorage is not available, using default language');
+        }
+        
+        changeLanguage(savedLanguage);
+        
         // Mobile Menu Toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const menu = document.getElementById('menu');
@@ -924,8 +1233,8 @@
         // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                if (this.classList.contains('buy-now')) {
-                    // Nie przewijaj dla przycisków "Kup teraz"
+                if (this.classList.contains('buy-now') || this.classList.contains('language-switch')) {
+                    // Nie przewijaj dla przycisków "Kup teraz" i przełącznika języków
                     return;
                 }
                 
@@ -970,7 +1279,7 @@
                     
                     if (step4) step4.style.display = 'none';
                     if (lastLine) lastLine.style.display = 'none';
-                    if (step3Button) step3Button.textContent = 'Zamów teraz';
+                    if (step3Button) step3Button.textContent = translations[currentLanguage]['form_submit'];
                 } else {
                     const step4 = document.querySelector('.progress-step[data-step="4"]');
                     const lastLine = document.querySelector('.progress-line:last-child');
@@ -978,7 +1287,7 @@
                     
                     if (step4) step4.style.display = 'flex';
                     if (lastLine) lastLine.style.display = 'block';
-                    if (step3Button) step3Button.textContent = 'Dalej';
+                    if (step3Button) step3Button.textContent = translations[currentLanguage]['form_next'];
                 }
             });
         });
@@ -1087,7 +1396,8 @@
                 if (isValid) {
                     goToNextStep(currentStep);
                 } else {
-                    alert('Proszę wypełnić wszystkie wymagane pola.');
+                    const message = currentLanguage === 'en' ? 'Please fill in all required fields.' : 'សូមបំពេញវាលដែលត្រូវការទាំងអស់។';
+                    alert(message);
                 }
             });
         });
@@ -1131,13 +1441,15 @@
             });
             
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
+                if (!link.parentElement.classList.contains('language-switch')) {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
                 }
             });
         });
     });
-</script>
+    </script>
 </body>
 </html>
